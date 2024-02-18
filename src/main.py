@@ -66,3 +66,11 @@ async def handler(client, message:Message):
           
         for file in result:
             await bot.send_document(chat_id=chat_id, document=file)
+            
+            
+            
+            
+            
+            
+            
+bot.run()
