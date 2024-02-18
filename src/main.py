@@ -2,7 +2,7 @@ from botconfig import bot
 from pyrogram import filters
 from pyrogram.types import Message
 from dbconfig import admins, users
-from keyboards import main_keyboard
+from keyboards import main_keyboard, none_password
 from tools import unarchive
 
 
@@ -56,10 +56,13 @@ async def handler(client, message:Message):
             except:
                 await bot.send_message(chat_id=chat_id,text="error!\ntry again /start")
             else:
-                await bot.send_message(chat_id=chat_id,text="send the password\n if the file is not protected send ``None``")
+                await bot.send_message(chat_id=chat_id,text="send the password",reply_markup=none_password)
     
     elif step == "send_password":
         
         password = message.text
         
-        result = unarchive(file_adress="", password="")  #TODO: edit and compelete this
+        result = unarchive(chat_id, file_name = message.document.file_name, password=password)  
+          
+        for file in result:
+            await bot.send_document(chat_id=chat_id, document=file)
