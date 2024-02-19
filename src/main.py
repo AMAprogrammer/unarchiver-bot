@@ -6,7 +6,7 @@ from keyboards import main_keyboard, none_password
 from tools import unarchive
 
 
-@bot.on_message(filters=filters.private & filters.text)
+@bot.on_message(filters=filters.private)
 async def handler(client, message:Message):
     text = message.text
     chat_id = message.chat.id
