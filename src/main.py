@@ -45,7 +45,7 @@ async def handler(client, message:Message):
                 
     elif step == "send_file":
         try:
-            message.download()
+            await message.download()
         except:
             await bot.send_message(chat_id=chat_id,text="error!\ntry again /start")
         else:
