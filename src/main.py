@@ -20,9 +20,7 @@ async def handler(client, message:Message):
             })
         except:
             await bot.send_message(chat_id=chat_id, text="error!\ntry again /start")
-        else:
-            await bot.send_message(chat_id=chat_id, text="Welcome to Unarchive Bot",reply_markup=main_keyboard)
-
+        
     else:
         step = user["step"]
         
