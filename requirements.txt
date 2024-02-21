@@ -1,4 +1,5 @@
 dnspython==2.6.0
+patool==2.2.0
 pyaes==1.6.1
 pymongo==4.6.1
 Pyrogram==2.0.106
