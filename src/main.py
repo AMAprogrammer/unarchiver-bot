@@ -16,7 +16,8 @@ async def handler(client, message:Message):
         try:
             users.insert_one({
                 "_id":chat_id,
-                "step":"home"
+                "step":"home",
+                "last_file":"None"
             })
         except:
             await bot.send_message(chat_id=chat_id, text="error!\ntry again /start")
@@ -46,6 +47,8 @@ async def handler(client, message:Message):
     elif step == "send_file":
         try:
             file_name = message.document.file_name
+            users.update_one({"_id":chat_id},{"$set":{"last_file":file_name}})
+            
             await bot.send_message(chat_id=chat_id, text="Downloading...")
             await message.download()
         except:
@@ -60,6 +63,7 @@ async def handler(client, message:Message):
     
     elif step == "send_password":
         
+        file_name = user["last_file"]
         password = message.text
         
         result = unarchive(chat_id, file_name = file_name, password=password)  
