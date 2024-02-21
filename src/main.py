@@ -45,6 +45,8 @@ async def handler(client, message:Message):
                 
     elif step == "send_file":
         try:
+            file_name = message.document.file_name
+            await bot.send_message(chat_id=chat_id, text="Downloading...")
             await message.download()
         except:
             await bot.send_message(chat_id=chat_id,text="error!\ntry again /start")
@@ -60,7 +62,7 @@ async def handler(client, message:Message):
         
         password = message.text
         
-        result = unarchive(chat_id, file_name = message.document.file_name, password=password)  
+        result = unarchive(chat_id, file_name = file_name, password=password)  
           
         for file in result:
             await bot.send_document(chat_id=chat_id, document=file)
