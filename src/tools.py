@@ -9,7 +9,7 @@ def unarchive(chat_id, file_name, password):
     if password == "the file is not locked":
         patoolib.extract_archive(file_adress, outdir=f"/home/container/users_file/{chat_id}/files/")
     else:
-        patoolib.extract_archive(file_adress, outdir=f"/home/container/users_file/{chat_id}/files/")
+        patoolib.extract_archive(file_adress, outdir=f"/home/container/users_file/{chat_id}/files/",password=password)
     
     files_list = listdir(f"/home/container/users_file{chat_id}/files/")
     
