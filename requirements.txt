@@ -1,10 +1,7 @@
-dnspython==2.6.0
-EasyProcess==1.1
-entrypoint2==1.1
-patool==2.2.0
+dnspython==2.6.1
 pyaes==1.6.1
-pymongo==4.6.1
+pymongo==4.6.2
 Pyrogram==2.0.106
 PySocks==1.7.1
-pyunpack==0.3
+rarfile==4.1
 TgCrypto==1.2.5
